@@ -13,12 +13,10 @@ vim.keymap.set('n', '<leader>th', ':tabprev<CR>')
 vim.keymap.set('n', '<leader>tt', ':tabs<CR>')
 
 vim.keymap.set('n', '<leader>e', ':Explore<CR>')
+vim.api.nvim_set_keymap('n', '<leader>cd', [[:lua vim.cmd('cd %:p:h') vim.cmd('echo "Working directory changed to " .. getcwd()')<CR>]], { noremap = true, silent = true })
 
 vim.cmd(':map <Up> <Nop>')
 vim.cmd(':map <Left> <Nop>')
 vim.cmd(':map <Right> <Nop>')
 vim.cmd(':map <Down> <Nop>')
-vim.cmd[[
-    hi clear NonText
-    hi link NonText Normal
-]]
+

@@ -13,10 +13,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.o.termguicolors = true
+vim.cmd[[set guifont=0xProto:h12]]
 
 
 
 require("vim-options")
+require("neovide-options")
 
 require("lazy").setup("plugins")
 
