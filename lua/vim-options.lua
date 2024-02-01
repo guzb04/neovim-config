@@ -1,8 +1,8 @@
 
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 vim.cmd("set number relativenumber")
 vim.g.mapleader = " "
 
@@ -11,6 +11,10 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>")
 vim.keymap.set("n", "<leader>tl", ":tabnext<CR>")
 vim.keymap.set("n", "<leader>th", ":tabprev<CR>")
 vim.keymap.set("n", "<leader>tt", ":tabs<CR>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>bl", ":bnext<CR>")
 vim.keymap.set("n", "<leader>bh", ":bprev<CR>")
