@@ -1,6 +1,7 @@
-return{
-'barrett-ruth/live-server.nvim',
-    config = function ()
-        require("live-server").setup()
-    end
+return {
+	"barrett-ruth/live-server.nvim",
+	lazy = true,
+	config = function()
+		require("live-server").setup()
+	end,
 }
