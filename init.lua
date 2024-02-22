@@ -13,12 +13,18 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.o.termguicolors = true
-vim.cmd([[set guifont=0xProto:h12]])
 vim.g.loaded_python3_provider = 0
 
 require("vim-options")
 require("neovide-options")
 
 require("lazy").setup("plugins")
-
+if vim.api.nvim_exec('augroup AutoOpenJson', true) == '' then
+  vim.cmd([[
+    autocmd!
+    autocmd VimEnter * if argc() > 0 && len(argv()) > 0 | execute 'edit' argv()[0] | endif
+  augroup END
+  ]])
+end
+vim.cmd[[set guifont=Hack\ Nerd\ Font\ Mono:h12]]
 local opts = {}
