@@ -1,4 +1,3 @@
-
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -16,15 +15,32 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>bl", ":bnext<CR>")
-vim.keymap.set("n", "<leader>bh", ":bprev<CR>")
-vim.keymap.set("n", "<leader>bc", ":bdelete<CR>")
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>", opts)
+vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", opts)
+vim.keymap.set("n", "<A-c>", ":BufferClose<CR>", opts)
+vim.keymap.set("n", "<A-p>", ":BufferPin<CR>", opts)
+
+vim.keymap.set("n", "<leader>ba", ":BufferCloseAllButCurrentOrPinned<CR>", opts)
+vim.keymap.set("n", "<leader>bp", ":BufferCloseAllButPinned<CR>", opts)
+
+vim.keymap.set("n", "<A-1>", ":BufferGoto 1<CR>", opts)
+vim.keymap.set("n", "<A-2>", ":BufferGoto 2<CR>", opts)
+vim.keymap.set("n", "<A-3>", ":BufferGoto 3<CR>", opts)
+vim.keymap.set("n", "<A-4>", ":BufferGoto 4<CR>", opts)
+vim.keymap.set("n", "<A-5>", ":BufferGoto 5<CR>", opts)
+vim.keymap.set("n", "<A-6>", ":BufferGoto 6<CR>", opts)
+vim.keymap.set("n", "<A-7>", ":BufferGoto 7<CR>", opts)
+vim.keymap.set("n", "<A-8>", ":BufferGoto 8<CR>", opts)
+vim.keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", opts)
+vim.keymap.set("n", "<A-0>", ":BufferLast<CR>", opts)
 
 vim.api.nvim_set_keymap(
-    "n",
-    "<leader>cd",
-    [[:lua vim.cmd('cd %:p:h') vim.cmd('echo "Working directory changed to " .. getcwd()')<CR>]],
-    { noremap = true, silent = true }
+  "n",
+  "<leader>cd",
+  [[:lua vim.cmd('cd %:p:h') vim.cmd('echo "Working directory changed to " .. getcwd()')<CR>]],
+  { noremap = true, silent = true }
 )
 
 vim.cmd(":map <Up> <Nop>")

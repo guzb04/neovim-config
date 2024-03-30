@@ -15,6 +15,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+
     lazy = true,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -27,12 +28,22 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
+      lspconfig.dockerls.setup({
+        capabilities = capabilities,
+      })
       lspconfig.html.setup({
         capabilities = capabilities,
         filetypes = { "html", "cshtml" },
       })
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
+        settings ={
+          Lua = {
+            completion = {
+              callSnippet = "Replace"
+            }
+          }
+        }
       })
       lspconfig.unocss.setup({
         capabilities = capabilities,
