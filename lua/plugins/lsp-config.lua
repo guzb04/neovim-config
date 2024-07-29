@@ -22,6 +22,18 @@ return {
 
       local lspconfig = require("lspconfig")
 
+      lspconfig.phpactor.setup({
+        capabilities = capabilities
+      })
+      lspconfig.pyright.setup({
+        capabilities = capabilities
+      })
+      lspconfig.jdtls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.cobol_ls.setup({
+        capabilities = capabilities,
+      })
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
@@ -37,13 +49,13 @@ return {
       })
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
-        settings ={
+        settings = {
           Lua = {
             completion = {
-              callSnippet = "Replace"
-            }
-          }
-        }
+              callSnippet = "Replace",
+            },
+          },
+        },
       })
       lspconfig.unocss.setup({
         capabilities = capabilities,

@@ -15,6 +15,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>", opts)

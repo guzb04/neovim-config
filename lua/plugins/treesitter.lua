@@ -8,7 +8,6 @@ return {
       "windwp/nvim-ts-autotag",
     },
     config = function()
-      require("nvim-treesitter.install").compilers = { "zig" }
       local config = require("nvim-treesitter.configs")
       config.setup({
         matchup = {
