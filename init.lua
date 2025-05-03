@@ -26,5 +26,12 @@ if vim.api.nvim_exec('augroup AutoOpenJson', true) == '' then
   augroup END
   ]])
 end
+
+vim.cmd([[
+  highlight CursorLineNr guifg=#98971A guibg=NONE ctermfg=Red ctermbg=NONE gui=bold
+  set cursorlineopt=number  " Only highlight line number
+  set cursorline
+]])
+
 vim.cmd[[set guifont=Hack\ Nerd\ Font\ Mono:h12]]
 local opts = {}

@@ -15,6 +15,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set("i", "<c-cr>", "<esc>/[[{('\")}\\]]<cr>:nohlsearch<cr>a", { silent = true })
+vim.keymap.set("i", "<s-cr>", "<esc>?\\%[\\\\][[{(''')}\\]]<cr>:nohlsearch<cr>i", {silent = true} )
+
 
 local opts = { noremap = true, silent = true }
 

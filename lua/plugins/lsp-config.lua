@@ -34,13 +34,13 @@ return {
       lspconfig.cobol_ls.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
       lspconfig.dockerls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.clangd.setup({
         capabilities = capabilities,
       })
       lspconfig.html.setup({
@@ -67,9 +67,6 @@ return {
         capabilities = capabilities,
       })
       lspconfig.csharp_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.clangd.setup({
         capabilities = capabilities,
       })
       lspconfig.cssls.setup({
