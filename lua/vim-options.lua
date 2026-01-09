@@ -14,10 +14,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("i", "<c-cr>", "<esc>/[[{('\")}\\]]<cr>:nohlsearch<cr>a", { silent = true })
-vim.keymap.set("i", "<s-cr>", "<esc>?\\%[\\\\][[{(''')}\\]]<cr>:nohlsearch<cr>i", {silent = true} )
-
+vim.keymap.set("i", "<s-cr>", "<esc>?\\%[\\\\][[{(''')}\\]]<cr>:nohlsearch<cr>i", { silent = true })
 
 local opts = { noremap = true, silent = true }
 
@@ -41,10 +41,10 @@ vim.keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", opts)
 vim.keymap.set("n", "<A-0>", ":BufferLast<CR>", opts)
 
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cd",
-  [[:lua vim.cmd('cd %:p:h') vim.cmd('echo "Working directory changed to " .. getcwd()')<CR>]],
-  { noremap = true, silent = true }
+	"n",
+	"<leader>cd",
+	[[:lua vim.cmd('cd %:p:h') vim.cmd('echo "Working directory changed to " .. getcwd()')<CR>]],
+	{ noremap = true, silent = true }
 )
 
 vim.cmd(":map <Up> <Nop>")
@@ -52,7 +52,17 @@ vim.cmd(":map <Left> <Nop>")
 vim.cmd(":map <Right> <Nop>")
 vim.cmd(":map <Down> <Nop>")
 
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 10
+vim.opt.foldminlines = 1
+
+vim.keymap.set('n', '<leader>td', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true })
