@@ -66,3 +66,4 @@ vim.opt.foldminlines = 1
 vim.keymap.set('n', '<leader>td', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true })
+
